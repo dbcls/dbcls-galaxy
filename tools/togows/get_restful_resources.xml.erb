@@ -1,0 +1,67 @@
+<?xml version="1.0"?>
+<tool id="togows_get_resource" name="Get Value of a Given Field">
+  <description>get the value of a given field for a selected ID</description>
+  
+  <command interpreter="ruby">get_restful_resources.rb -d '$database' --entry-id-file '$entry_id' -f '$field' -o '$output'</command>
+
+  <inputs>
+    <param name="database" type="select" format="text" label="Database">
+<%
+require 'open-uri'
+databases = open('http://togows.dbcls.jp/entry/').each do |l|
+  long_name, short_name = l.chomp.split
+  if short_name.nil?
+    short_name = long_name
+  end
+%>
+      <option value="<%= long_name %>"><%= long_name %></option>
+<%
+end 
+%>
+    </param>
+    <param name="entry_id" format="txt" type="data" label="Entry ID"/>
+    <param name="field" type="text" value="title" label="Field" />
+  </inputs>
+  
+  <outputs>
+    <data format="tabular" name="output" />
+  </outputs>
+
+  <help>
+
+**What it does**
+
+For a selected entry and field of a database,
+this tool parses the entry and shows the value ot the field.
+
+TogoWS is an integrated web service in life science and
+this tool corresponds to the following REST URI:
+http://togows.dbcls.jp/entry/[Database]/[Entry ID]/[Field]
+
+About TogoWS, see: http://togows.dbcls.jp/
+
+-----
+
+**How to use**
+
+Input: a database name, an ID of the database, and a field of the database
+
+Output: a value of the field of the ID in the database
+
+-----
+
+**Example**
+
+For the following input,
+
+  Database : pubmed
+  Entry ID : 19165226
+  Field : title
+
+the result is 
+
+  A tense situation: forcing tumour progression.
+
+  </help>
+
+</tool>

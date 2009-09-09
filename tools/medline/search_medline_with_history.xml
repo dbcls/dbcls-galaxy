@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<tool id="pne_search_medline_with_history" name="A query from History pane">
+  <description></description>
+  
+  <command interpreter="ruby">search_medline.rb --query-file '$query' -o '$output'</command>
+
+  <inputs>
+    <param name="query" format="txt" type="data" label="Query"/>    
+  </inputs>
+
+  <outputs>
+    <data format="tabular" name="output" />
+  </outputs>
+
+  <help>
+**What it does**
+
+This tool searches MEDLINE abstract(s).
+
+LUCENE 2.4.0 has been used to index and search MEDLINE abstracts that are included in 2009 MEDLINE/PubMed Baseline Distribution.
+
+-----
+
+**How to use**
+
+Please select queries listed in the History pane, and click the execute button.
+
+If there is no Pasted Entry in the History pane, please use "Upload File" under "Get Data" in Tools pane to upload a query/queries to the History pane, or please use the MEDLINE search with a dirct-input query. 
+
+The results can be shown on the middle pane by clicking the eye symbol on the history pane.
+
+----- 
+
+**Output**
+
+PMID{tab}Title 
+  </help>
+
+</tool>

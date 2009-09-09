@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<tool id="__tool_id__" name="__tool_name__">
+  <description></description>
+  
+  <inputs>
+    <param name="source" format="txt" type="data" label="Source Data" />
+    <!-- param name="pattern" type="text" value="" label="Pattern" /-->
+  </inputs>
+
+  <outputs>
+    <data format="txt" name="output" />
+  </outputs>
+
+  <command interpreter="sh">__tool_id__.sh '$source' '$output'</command>
+
+  <help>
+  </help>
+</tool>

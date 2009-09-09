@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="style/base.css" type="text/css" />
+<style type="text/css">
+<!--
+    h1 {
+      margin-left: 0pt;
+    }
+    h2 {
+      margin-left: 20px;
+    }
+    h3 {
+      margin-left: 30px;
+    }
+    p {
+      margin-left: 50px;
+    }
+-->
+</style>
+
+</head>
+<body>
+  <h1>各リソース・構造表示用ブックマークレット</h1>
+  <h2>ブックマークレット一覧</h2>
+  <p>
+    <ul>
+      <li>
+        <a href="javascript:(function(){function%20selectedText(w){function%20selectedFrameText(w){try{return%20w.getSelection().toString();}catch(e){return%20null;}}function%20walkFrames(w){var%20flen=w.frames.length;var%20selected=null;for(var%20i=0;i<flen;i++){if(selected=selectedFrameText(w[i])){return%20selected;}else{if(selected=walkFrames(w[i])){return%20selected;}}}return%20null;}return%20walkFrames(w);};var%20service='Pfam';var%20before='http://pfam.sanger.ac.uk/family?entry=';var%20after='';var%20selected=null;if(!(selected=selectedText(window))){selected=prompt('Please%20input%20'+service+'%20query.');}if(selected){var%20url=before+selected+after;window.open(url,'_blank')}})();">
+          Pfam表示
+        </a>
+      </li>
+      <li>
+        <a href="javascript:(function(){function%20selectedText(w){function%20selectedFrameText(w){try{return%20w.getSelection().toString();}catch(e){return%20null;}}function%20walkFrames(w){var%20flen=w.frames.length;var%20selected=null;for(var%20i=0;i<flen;i++){if(selected=selectedFrameText(w[i])){return%20selected;}else{if(selected=walkFrames(w[i])){return%20selected;}}}return%20null;}return%20walkFrames(w);};var%20service='PDBj%20jV';var%20before='http://pdbjs3.protein.osaka-u.ac.jp/xPSSS/DetailServlet?PDBID=';var%20after='&PAGEID=Interactive2';var%20selected=null;if(!(selected=selectedText(window))){selected=prompt('Please%20input%20'+service+'%20query.');}if(selected){var%20url=before+selected+after;window.open(url,'_blank')}})();">
+          PDBj jV表示
+        </a>
+      </li>
+    </ul>
+  </p>
+  <h2>ブックマークレットの使い方</h2>
+  <h3>1.ブックマークレットのインストール</h3>
+  <p>  
+    ブックマークレット一覧からリソース・構造表示に必要なブックマークレットを選択して、それをお使いのブラウザのブックマークとして登録してください。
+    ツールバーにあるブックマーク一覧に登録しておくと後での利用が楽になります。
+  </p>
+  <h3>2.IDの取得</h3>
+  <p>
+    Galaxyのツールを利用し、表示させたい各リソースや構造データのIDを取得します。
+  </p>  
+  <h3>3.IDの選択</h3>
+  <p>
+    2.で取得したIDを選択した状態にします。
+  </p>
+  <h3>4.リソース・構造データの表示</h3>
+  <p>
+    3.でIDを選択した状態のまま、先ほど登録したブックマークレットを起動してください。
+    選択したIDがブックマークレットに渡され、リソース・構造データが表示されます。
+  </p>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<tool id="medline_keyword_get_sentence" name="Load requested MEDLINE abstract(s)">
+  <description></description>
+  
+  <command interpreter="sh">/opt/services/galaxy/related_pne/src/customized_control_tables/control_table.sh t3 '$pmid_list' '$output' /opt/services/galaxy/related_pne/src/customized_control_tables</command>
+
+  <inputs>
+    <param name="pmid_list" format="txt" type="data" label="PMID list(s) or MEDLINE search result(s)"/>
+  </inputs>
+
+  <outputs>
+    <data format="tabular" name="output" />
+  </outputs>
+
+  <help>
+**What it does**
+
+The tool provides sentence-splited MEDLINE abstract(s) that is/are selected by a user.
+
+The sentence split technique is provided by the National Centre for Text Mining (NaCTeM).
+
+-----
+
+**How to use**
+
+To use this tool a user first needs PubMed ID list as an input. 
+
+A user also can get PubMed ID list by performing a MEDLINE search.
+
+Please select the PubMed ID list, and click the execute button. 
+
+----- 
+
+**Output**
+
+PMID{tab}T(title) or A(abstract text){tab}Sentence ID{tab}Sentence
+  </help>
+
+</tool>

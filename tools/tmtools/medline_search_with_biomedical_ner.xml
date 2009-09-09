@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<tool id="medline_keyword_medline_search_with_biomedical_ner" name="MEDLINE abstracts with biomedical NER">
+  <description></description>
+  
+  <command interpreter="ruby">medline_search_with_biomedical_ner.rb --medlines-file '$required_medline_abstract' --ner-results-file '$ner_results' -o '$output'</command>
+
+  <inputs>
+    <param name="required_medline_abstract" format="txt" type="data" label="Requested MEDLINE abstracts"/>
+    <param name="ner_results" format="txt" type="data" label="NER results"/>
+  </inputs>
+
+  <outputs>
+    <data format="txt" name="output" />
+  </outputs>
+
+  <help>
+**What it does**
+
+The tool provides MEDLINE abstract(s) with highlighted biomedical term(s).
+
+-----
+
+**How to use**
+
+To use this tool a user first needs to perform "Load requested MEDLINE abstract(s)", and "Load NER results".
+
+Please select the results of "Load requested MEDLINE abstract(s)" and "Load NER results", and click the execute button. 
+
+----- 
+
+**Output**
+
+The outputs contain PMID, Title, and Abstract of MEDLINE abstract(s).
+
+Biomedical terms and their classes are represented with double square brackets and angle brackets, respectively.
+  </help>
+
+</tool>

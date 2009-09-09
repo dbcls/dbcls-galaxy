@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<tool id="togows_search" name="Search">
+  <description>search with a direct-input query</description>
+  
+  <command interpreter="ruby">search_resources.rb -d '$database' -q '$query' -o '$output'</command>
+
+  <inputs>
+    <param name="database" type="select" format="text" label="Database">
+<%
+require 'open-uri'
+databases = open('http://togows.dbcls.jp/search/').each do |l|
+  long_name, short_name = l.chomp.split
+  if short_name.nil?
+    short_name = long_name
+  end
+%>
+      <option value="<%= long_name %>"><%= long_name %></option>
+<%
+end 
+%>
+    </param>
+    <param name="query" type="text" value="" label="Query" />
+  </inputs>
+  
+  <outputs>
+    <data format="tabular" name="output" />
+  </outputs>
+
+  <help>
+
+**What it does**
+
+This tool retrieves entries for a given query 
+from a database in TogoWS.
+
+TogoWS is an integrated web service in life science and
+this tool corresponds to the following REST URI:
+http://togows.dbcls.jp/search/[database]/[query]
+
+About TogoWS, see: http://togows.dbcls.jp/
+
+-----
+
+**How to use**
+
+Input: a database name and a query 
+         (ex. Database: pubmed, Query: cancer )
+
+         Note that the format of a query should follow the Common Query Language.
+
+Output: ID list of the database retreived by the given query using TogoWS
+
+  </help>
+
+</tool>

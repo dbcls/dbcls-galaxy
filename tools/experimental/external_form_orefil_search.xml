@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!--
+    If the value of 'URL_method' is 'get', the request will consist of the value of 'URL' coming back in
+    the initial response.  If value of 'URL_method' is 'post', any additional params coming back in the
+    initial response ( in addition to 'URL' ) will be encoded and appended to URL and a post will be performed.
+-->
+<tool name="OReFiL Search(External Form)" id="external_form_orefil_search" tool_type="data_source" URL_method="post">
+	<description>Search OReFiL via external search form</description>
+	<command interpreter="python">data_source.py $output</command>
+	<inputs action="http://test-orefil.dbcls.jp/galaxy/form" check_values="false" method="get">
+		<display>go to UCSC Table Browser $GALAXY_URL</display>
+		<param name="GALAXY_URL" type="baseurl" value="/tool_runner" />
+		<param name="tool_id" type="hidden" value="external_form_orefil_search" />
+	</inputs>
+	<uihints minwidth="800"/>
+	<outputs>
+		<data name="output" format="tabular" />
+	</outputs>
+	<options sanitize="False" refresh="True"/>
+</tool>

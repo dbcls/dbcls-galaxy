@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<tool id="pne_search" name="PNE Search">
+  <description>PNE Search by Japanese query</description>
+  
+  <command interpreter="ruby">pne_search.rb --query-file '$japanese_query' -o '$output'</command>
+
+  <inputs>
+    <param name="japanese_query" format="txt" type="data" label="Japanese Query"/>
+  </inputs>
+
+  <outputs>
+    <data format="tabular" name="output" />
+  </outputs>
+
+  <help>
+This tool search PNE by Japanese query.
+  </help>
+
+</tool>

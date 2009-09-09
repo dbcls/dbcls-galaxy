@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+<tool id="orefil_search_with_history" name="OReFiL Search with History">
+  <description>OReFiL search with a query from a history pane</description>
+  
+  <command interpreter="ruby">orefil_search.rb --query-file '$query' -c '$count' -s '$sort_by' --options '$query_option' -o '$output'</command>
+
+  <inputs>
+    <param name="query" format="txt" type="data" label="Query"/>
+    <!-- param name="count" format="txt" type="data" label="Query"/ -->
+    <param name="count" type="integer" value="10" label="Max Results (1 ... 1000)">
+      <validator type="in_range" message="Out of range." min="1" max="1000"/>
+    </param>
+    <param name="sort_by" type="select" display="radio" label="Sort by">
+      <option value="relevance" selected="true">Relevance</option>
+      <option value="date">Date</option>
+      <option value="rating">Rating</option>      
+    </param>
+    <param name="query_option" type="select" display="checkboxes" multiple="true" label="Query Options">
+      <option value="hide_unfetched" selected="false">Hide Unfetched</option>
+      <option value="feedback" selected="true">Relevance Feedback</option>
+    </param>
+    <validator type="regex" />
+  </inputs>
+
+  <!-- code file="search_code.py"/ -->
+  
+  <outputs>
+    <data format="tabular" name="output" />
+  </outputs>
+
+  <help>
+
+**What it does**
+
+OReFiL is an online resource finder for lifesciences.
+
+About OReFiL, see http://orefil.dbcls.jp/
+
+-----
+
+**Output**
+
+OReFiL ID{tab}resource URL{tab}resource title{tab}rank
+
+-----
+
+**Example**
+
+16030	http://genome.imim.es/genepredictions/	Precomputed Gene Predictions on Whole Genome Sequences	1
+
+1976	http://www.genome.gov/page.cfm?pageID=10002154	genome.gov | Approved Sequencing Targets	2
+
+31	http://www.genome.gov/10002154	genome.gov | Approved Sequencing Targets	3
+
+8470	http://hgdownload.cse.ucsc.edu/downloads.html#dog	UCSC Genome Browser: Downloads	4
+
+3540	http://www.hgsc.bcm.tmc.edu/projects/rat/	Rat Genome Project	5
+
+6831	http://rana.lbl.gov/drosophila/multipleflies.html	AAA--Assembly/Alignment/Annotation of 12 Drosophila Genomes	6
+
+5944	http://pipeline.lbl.gov/cgi-bin/gateway2	VISTA Genome Browser	73689	http://www.genome.gov/11007952	genome.gov | Roundworm Genome Sequencing	8
+
+12739	http://lagan.stanford.edu/lagan_web/index.shtml	LAGAN - Home	9
+
+1595	http://img.jgi.doe.gov/cgi-bin/pub/main.cgi	IMG Home	1
+
+  </help>
+</tool>

@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<tool id="pubmed_get_resource" name="Pubmed Get Resource">
+  <description></description>
+  
+  <inputs>
+    <param name="entry_id" format="txt" type="data" label="Entry ID"/>
+    <param name="field" type="select" label="Field" >
+      <!-- http://togows.dbcls.jp/entry/pubmed/ が返す値を利用 -->
+      <option value="abstract">abstract</option>
+      <option value="au">au</option>
+      <option value="authors">authors</option>
+      <option value="doi">doi</option>
+      <option value="mesh">mesh</option>
+      <option value="so">so</option>
+      <option value="title">title</option>
+    </param>
+  </inputs>
+
+  <outputs>
+    <data format="txt" name="output" />
+  </outputs>
+
+  <command interpreter="ruby">pubmed_get_resource.rb -e '$entry_id' -f '$field' -o '$output'</command>
+
+  <help>
+
+**What it does**
+
+Get the data of the selected entry and field from the PubMed database via TogoWS.
+
+TogoWS is an integrated web service in life science and
+this tool corresponds to the following REST URI:
+http://togows.dbcls.jp/entry/[Database]/[Entry ID]/[Field]
+
+About TogoWS, see: http://togows.dbcls.jp/
+
+-----
+
+**How to use**
+
+Input: PubMed IDs, and a field of the PubMed database
+
+Output: a value of the field of the ID in the PubMed database
+
+-----
+
+**Example**
+
+For the following input,
+
+  Entry ID : 19165226
+  Field : title
+
+the result is 
+
+  A tense situation: forcing tumour progression.
+  </help>
+</tool>

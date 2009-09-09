@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<tool id="medline_keyword_get_keyword_location" name="Load NER results">
+  <description></description>
+  
+  <command interpreter="sh">/opt/services/galaxy/related_pne/src/customized_control_tables/control_table.sh t4 '$pmid_list' '$output' /opt/services/galaxy/related_pne/src/customized_control_tables</command>
+
+  <inputs>
+    <param name="pmid_list" format="txt" type="data" label="PMID list(s) or MEDLINE search result(s)"/>
+  </inputs>
+
+  <outputs>
+    <data format="tabular" name="output" />
+  </outputs>
+
+  <help>
+**What it does**
+
+The tool provides biomedical term recognition result(s).
+
+Biomedical term recognizer is developed by Dr. Chun of DBCLS, and FACTA dictionaries from NaCTeM have been used.
+
+-----
+
+**How to use**
+
+To use this tool a user first needs PubMed ID list as an input. 
+
+A user also can get PubMed ID list by performing a MEDLINE search.
+
+Please select the PubMed ID list, and click the execute button. 
+
+----- 
+
+**Output**
+
+PMID{tab}T(title) or A(abstract text){tab}Sentence ID{tab}Class*{tab}Recognized Term{tab}Begin position{tab}End position{tab}ID in other DBs-UniProt, UMLS, etc.
+
+Class*: Compound, Disease, Drug, Enzyme, Human Gene, Symptom
+
+-----
+
+**Example**
+
+9491158	A	4	human_gene	antigen	106	113	UNIPROT:P14209
+
+9491158	A	11	symptom	Cough	0	5	UMLS:C0010200
+
+9491158	A	13	disease	Thoracic	0	8	UMLS:C0729233
+
+10349835	A	5	enzyme	protein kinase A	109	125	EC:2.7.11.1
+
+  </help>
+
+</tool>

@@ -1,0 +1,86 @@
+<?xml version="1.0"?>
+<tool id="togows_get_resource" name="Get Value of a Given Field">
+  <description>get the value of a given field for a selected ID</description>
+  
+  <command interpreter="ruby">get_restful_resources.rb -d '$database' --entry-id-file '$entry_id' -f '$field' -o '$output'</command>
+
+  <inputs>
+    <param name="database" type="select" format="text" label="Database">
+
+      <option value="ncbi-genbank">ncbi-genbank</option>
+
+      <option value="ncbi-pubmed">ncbi-pubmed</option>
+
+      <option value="ebi-embl">ebi-embl</option>
+
+      <option value="ebi-uniprot">ebi-uniprot</option>
+
+      <option value="ddbj-ddbj">ddbj-ddbj</option>
+
+      <option value="ddbj-dad">ddbj-dad</option>
+
+      <option value="pdbj-pdb">pdbj-pdb</option>
+
+      <option value="kegg-compound">kegg-compound</option>
+
+      <option value="kegg-drug">kegg-drug</option>
+
+      <option value="kegg-enzyme">kegg-enzyme</option>
+
+      <option value="kegg-genes">kegg-genes</option>
+
+      <option value="kegg-glycan">kegg-glycan</option>
+
+      <option value="kegg-orthology">kegg-orthology</option>
+
+      <option value="kegg-reaction">kegg-reaction</option>
+
+      <option value="kegg-pathway">kegg-pathway</option>
+
+    </param>
+    <param name="entry_id" format="txt" type="data" label="Entry ID"/>
+    <param name="field" type="text" value="title" label="Field" />
+  </inputs>
+  
+  <outputs>
+    <data format="tabular" name="output" />
+  </outputs>
+
+  <help>
+
+**What it does**
+
+For a selected entry and field of a database,
+this tool parses the entry and shows the value ot the field.
+
+TogoWS is an integrated web service in life science and
+this tool corresponds to the following REST URI:
+http://togows.dbcls.jp/entry/[Database]/[Entry ID]/[Field]
+
+About TogoWS, see: http://togows.dbcls.jp/
+
+-----
+
+**How to use**
+
+Input: a database name, an ID of the database, and a field of the database
+
+Output: a value of the field of the ID in the database
+
+-----
+
+**Example**
+
+For the following input,
+
+  Database : pubmed
+  Entry ID : 19165226
+  Field : title
+
+the result is 
+
+  A tense situation: forcing tumour progression.
+
+  </help>
+
+</tool>

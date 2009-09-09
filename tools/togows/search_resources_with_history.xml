@@ -1,0 +1,132 @@
+<?xml version="1.0"?>
+<tool id="togows_search_with_history" name="Search with History">
+  <description>search with a query from history pane</description>
+  
+  <command interpreter="ruby">search_resources.rb -d '$database' --query-file '$query' -o '$output'</command>
+
+  <inputs>
+    <param name="database" type="select" format="text" label="Database">
+      <option value="genbank">ncbi-genbank</option>
+      <option value="pubmed">ncbi-pubmed</option>
+      <option value="ncbi-books">ncbi-books</option>
+      <option value="ncbi-cancerchromosomes">ncbi-cancerchromosomes</option>
+      <option value="ncbi-cdd">ncbi-cdd</option>
+      <option value="ncbi-domains">ncbi-domains</option>
+      <option value="ncbi-gap">ncbi-gap</option>
+      <option value="ncbi-gds">ncbi-gds</option>
+      <option value="ncbi-gene">ncbi-gene</option>
+      <option value="ncbi-genome">ncbi-genome</option>
+      <option value="ncbi-genomeprj">ncbi-genomeprj</option>
+      <option value="ncbi-gensat">ncbi-gensat</option>
+      <option value="ncbi-geo">ncbi-geo</option>
+      <option value="ncbi-homologene">ncbi-homologene</option>
+      <option value="ncbi-journals">ncbi-journals</option>
+      <option value="ncbi-mesh">ncbi-mesh</option>
+      <option value="ncbi-ncbisearch">ncbi-ncbisearch</option>
+      <option value="ncbi-nlmcatalog">ncbi-nlmcatalog</option>
+      <option value="ncbi-nuccore">ncbi-nuccore</option>
+      <option value="ncbi-nucest">ncbi-nucest</option>
+      <option value="ncbi-nucgss">ncbi-nucgss</option>
+      <option value="ncbi-nucleotide">ncbi-nucleotide</option>
+      <option value="ncbi-omia">ncbi-omia</option>
+      <option value="ncbi-omim">ncbi-omim</option>
+      <option value="ncbi-pcassay">ncbi-pcassay</option>
+      <option value="ncbi-pccompound">ncbi-pccompound</option>
+      <option value="ncbi-pcsubstance">ncbi-pcsubstance</option>
+      <option value="ncbi-pmc">ncbi-pmc</option>
+      <option value="ncbi-popset">ncbi-popset</option>
+      <option value="ncbi-probe">ncbi-probe</option>
+      <option value="ncbi-protein">ncbi-protein</option>
+      <option value="ncbi-proteinclusters">ncbi-proteinclusters</option>
+      <option value="ncbi-pubmed">ncbi-pubmed</option>
+      <option value="ncbi-snp">ncbi-snp</option>
+      <option value="ncbi-structure">ncbi-structure</option>
+      <option value="ncbi-taxonomy">ncbi-taxonomy</option>
+      <option value="ncbi-toolkit">ncbi-toolkit</option>
+      <option value="ncbi-unigene">ncbi-unigene</option>
+      <option value="ncbi-unists">ncbi-unists</option>
+      <option value="embl">ebi-embl</option>
+      <option value="uniprot">ebi-uniprot</option>
+      <option value="ebi-2can">ebi-2can</option>
+      <option value="ebi-arrayexpress-experiments">ebi-arrayexpress-experiments</option>
+      <option value="ebi-arrayexpress-genes">ebi-arrayexpress-genes</option>
+      <option value="ebi-arrayexpress-repository">ebi-arrayexpress-repository</option>
+      <option value="ebi-astd">ebi-astd</option>
+      <option value="ebi-biomodels">ebi-biomodels</option>
+      <option value="ebi-chebi">ebi-chebi</option>
+      <option value="ebi-ebiweb_staff">ebi-ebiweb_staff</option>
+      <option value="ebi-emblcds">ebi-emblcds</option>
+      <option value="ebi-embldeleted">ebi-embldeleted</option>
+      <option value="ebi-emblnew_ann_con">ebi-emblnew_ann_con</option>
+      <option value="ebi-emblnew_con">ebi-emblnew_con</option>
+      <option value="ebi-emblnew_standard">ebi-emblnew_standard</option>
+      <option value="ebi-emblnew_wgs">ebi-emblnew_wgs</option>
+      <option value="ebi-emblrelease_ann_con">ebi-emblrelease_ann_con</option>
+      <option value="ebi-emblrelease_con">ebi-emblrelease_con</option>
+      <option value="ebi-emblrelease_standard">ebi-emblrelease_standard</option>
+      <option value="ebi-emblrelease_wgs">ebi-emblrelease_wgs</option>
+      <option value="ebi-ensembl">ebi-ensembl</option>
+      <option value="ebi-go">ebi-go</option>
+      <option value="ebi-groups">ebi-groups</option>
+      <option value="ebi-intact-experiments">ebi-intact-experiments</option>
+      <option value="ebi-intact-interactions">ebi-intact-interactions</option>
+      <option value="ebi-intact-interactors">ebi-intact-interactors</option>
+      <option value="ebi-integr8">ebi-integr8</option>
+      <option value="ebi-intenz">ebi-intenz</option>
+      <option value="ebi-interpro">ebi-interpro</option>
+      <option value="ebi-mainweb">ebi-mainweb</option>
+      <option value="ebi-medline">ebi-medline</option>
+      <option value="ebi-msdchem">ebi-msdchem</option>
+      <option value="ebi-msdpdb">ebi-msdpdb</option>
+      <option value="ebi-patentdb">ebi-patentdb</option>
+      <option value="ebi-pride">ebi-pride</option>
+      <option value="ebi-reactome">ebi-reactome</option>
+      <option value="ebi-resid">ebi-resid</option>
+      <option value="ebi-sbo">ebi-sbo</option>
+      <option value="ebi-taxonomy">ebi-taxonomy</option>
+      <option value="ebi-uniparc">ebi-uniparc</option>
+      <option value="ebi-uniprot">ebi-uniprot</option>
+      <option value="ebi-uniref100">ebi-uniref100</option>
+      <option value="ebi-uniref50">ebi-uniref50</option>
+      <option value="ebi-uniref90">ebi-uniref90</option>
+      <option value="compound">kegg-compound</option>
+      <option value="drug">kegg-drug</option>
+      <option value="enzyme">kegg-enzyme</option>
+      <option value="genes">kegg-genes</option>
+      <option value="glycan">kegg-glycan</option>
+      <option value="orthology">kegg-orthology</option>
+      <option value="reaction">kegg-reaction</option>
+      <option value="pathway">kegg-pathway</option>
+    </param>
+    <param name="query" format="txt" type="data" label="Query" />
+  </inputs>
+  
+  <outputs>
+    <data format="tabular" name="output" />
+  </outputs>
+
+  <help>
+
+**What it does**
+
+This tool retrieves entries of a database in TogoWS for a query 
+from history pane.
+
+TogoWS is an integrated web service in life science and
+this tool corresponds to the following REST URI:
+http://togows.dbcls.jp/search/[database]/[query]
+
+About TogoWS, see: http://togows.dbcls.jp/
+
+-----
+
+**How to use**
+
+Input: a database name and a query from history pane.
+
+      Note that the format of a query should follow the Common Query Language.
+
+Output: ID list of the database retreived by the given query using TogoWS
+
+  </help>
+</tool>

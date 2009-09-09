@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<tool id="pne_search_medline" name="A direct-input query">
+  <description></description>
+  
+  <command interpreter="ruby">search_medline.rb -q '$query' -o '$output'</command>
+
+  <inputs>
+    <param name="query" type="text" value="" label="Query"/>
+  </inputs>
+
+  <outputs>
+    <data format="tabular" name="output" />
+  </outputs>
+
+  <help>
+**What it does**
+
+This service searches MEDLINE abstract(s).
+
+LUCENE 2.4.0 has been used to index and search MEDLINE abstracts that are included in 2009 MEDLINE/PubMed Baseline Distribution.
+
+-----
+
+**How to use**
+
+Please fill in a query, and click the execute button.
+
+The results can be shown on the middle pane by clicking the eye symbol on the history pane.
+
+----- 
+
+**Output**
+
+PMID{tab}Title 
+  </help>
+
+</tool>

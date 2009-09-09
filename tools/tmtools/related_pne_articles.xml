@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<tool id="pne_search_by_pmids" name="Related PNE articles" is_multi_byte="true">
+  <description></description>
+  
+  <command interpreter="ruby">related_pne_articles.rb --query-file '$pmids' -o '$output'</command>
+
+  <inputs>
+    <param name="pmids" format="txt" type="data" label="PMID list(s) or MEDLINE search result(s)"/>
+  </inputs>
+
+  <outputs>
+    <data format="tabular" name="output" />
+  </outputs>
+
+  <help>
+**What it does**
+
+This tool provides related protein, nucleic acid and enzyme (PNE) article(s) for MEDLINE abstract(s).
+
+PNE is a journal of Japan publishing review articles in all aspects of biology, and all articles in PNE are written in Japanese.
+
+To recognize representative keyword(s) in MEDLINE abstracts, a biomedical term recognizer is developted by Dr. Chun of DBCLS using FACTA dictionaries of the National Centre for Text Mining (NaCTeM).
+
+To translate representative English keywords in MEDLINE abstracts into Japanese terms, an English-Japanese dictionary developed by the dictionary team in DBCLS was used.
+
+To search PNE articles, a PNE search API developed by the dictionary team in DBCLS was used.
+
+-----
+
+**How to use**
+
+To use this tool a user first needs PubMed ID list as an input. 
+
+A user also can get PubMed ID list by performing a MEDLINE search.
+
+Please select the PubMed ID list, and click the execute button. 
+
+The results can be shown on the middle pane by clicking the eye symbol on the history pane.
+
+----- 
+
+**Output**
+
+PMID{tab}TITLE{tab}PNE title{tab}PNE URL
+  </help>
+
+</tool>

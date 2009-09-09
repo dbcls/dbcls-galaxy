@@ -1,0 +1,94 @@
+<tool id="Grouping1" name="Group" version="1.7.0">
+  <description>data by a column and perform aggregate operation on other columns.</description>
+  <command interpreter="python">
+    grouping.py 
+      $out_file1
+      $input1
+      $groupcol
+      #for $op in $operations
+       '${op.optype}
+        ${op.opcol}
+        ${op.opround}'
+      #end for
+  </command>
+  <inputs>
+    <param format="tabular" name="input1" type="data" label="Select data" help="Query missing? See TIP below."/>
+    <param name="groupcol" label="Group by column" type="data_column" data_ref="input1" />
+    <repeat name="operations" title="Operation">
+      <param name="optype" type="select" label="Type">
+        <option value="mean">Mean</option>
+        <option value="max">Maximum</option>
+        <option value="min">Minimum</option>
+        <option value="sum">Sum</option>
+        <option value="length">Count</option>
+        <option value="unique">Count Distinct</option>
+        <option value="c">Concatenate</option>
+        <option value="cuniq">Concatenate Distinct</option>
+        <option value="random">Randomly pick</option>
+      </param>
+      <param name="opcol" label="On column" type="data_column" data_ref="input1" />
+      <param name="opround" type="select" label="Round result to nearest integer?">
+         <option value="no">NO</option>
+         <option value="yes">YES</option>
+       </param>
+    </repeat>
+  </inputs>
+  <outputs>
+    <data format="tabular" name="out_file1" />
+  </outputs>
+  <requirements>
+    <requirement type="python-module">rpy</requirement>
+  </requirements>
+  <tests>
+    <!-- Test valid data -->
+    <test>
+      <param name="input1" value="1.bed"/>
+      <param name="groupcol" value="1"/>
+      <param name="optype" value="mean"/>
+      <param name="opcol" value="2"/>
+      <param name="opround" value="no"/>
+      <output name="out_file1" file="groupby_out1.dat"/>
+    </test>
+    
+    <!-- Test data with an invalid value in a column -->
+    <test>
+      <param name="input1" value="1.tabular"/>
+      <param name="groupcol" value="1"/>
+      <param name="optype" value="mean"/>
+      <param name="opcol" value="2"/>
+      <param name="opround" value="no"/>
+      <output name="out_file1" file="groupby_out2.dat"/>
+    </test>
+  </tests>
+  <help>
+
+.. class:: infomark
+
+**TIP:** If your data is not TAB delimited, use *Text Manipulation-&gt;Convert*
+
+-----
+
+**Syntax**
+
+This tool allows you to group the input dataset by a particular column and perform aggregate functions like Mean, Sum, Max, Min and Concatenate on other columns. 
+
+- All invalid, blank and comment lines are skipped when performing the aggregate functions.  The number of skipped lines is displayed in the resulting history item.
+
+-----
+
+**Example**
+
+- For the following input::
+
+   chr22  1000  NM_17
+   chr22  2000  NM_18
+   chr10  2200  NM_10
+   chr10  1200  NM_11
+   chr22  1600  NM_19
+
+- running this tool with **Group by column 1**, Operations **Mean on column 2** and **Concatenate on column 3** will return::
+
+   chr10    1700.00 NM_11,NM_10
+   chr22    1533.33 NM_17,NM_19,NM_18
+  </help>
+</tool>

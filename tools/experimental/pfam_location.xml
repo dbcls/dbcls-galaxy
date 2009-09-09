@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<tool id="pfam_location" name="pfam_location">
+  <description>generate Pfam URL from Pfam ID or family name.</description>
+  
+  <command interpreter="ruby">pfam_location.rb --pfam-id-list-file '$input' -o '$output'</command>
+
+  <inputs>
+    <param name="input" format="txt" type="data" label="Input" />
+  </inputs>
+  
+  <outputs>
+    <data format="txt" name="output" />
+  </outputs>
+
+  <help>
+
+**What it does**
+
+This tool generate URL list. That URL points motif infomation page by Pfam ID.
+
+-----
+
+**How to use**
+
+Input: Pfam ID list in History.
+
+Output: motif infomation page URL list.
+
+  </help>
+</tool>

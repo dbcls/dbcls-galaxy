@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<tool id="pne_translate_to_japanese_query" name="PNE Translate to Japanese query">
+  <description>translate to Japanese query</description>
+  
+  <command interpreter="sh">/opt/services/galaxy/related_pne/src/customized_control_tables/control_table.sh t2 '$pmid_list' '$output' /opt/services/galaxy/related_pne/src/customized_control_tables</command>
+
+  <inputs>
+    <param name="pmid_list" format="txt" type="data" label="PMID List"/>
+  </inputs>
+
+  <outputs>
+    <data format="tabular" name="output" />
+  </outputs>
+
+  <help>
+This tool translate PMID list to Japanese query.
+  </help>
+
+</tool>

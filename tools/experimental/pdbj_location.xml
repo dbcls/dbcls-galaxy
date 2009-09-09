@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<tool id="pdbj_location" name="pdbj_location">
+  <description>generate PDBj URL from PDB ID.</description>
+  
+  <command interpreter="ruby">pdbj_location.rb --pdb-id-list-file '$input' -o '$output'</command>
+
+  <inputs>
+    <param name="input" format="txt" type="data" label="Input" />
+  </inputs>
+  
+  <outputs>
+    <data format="txt" name="output" />
+  </outputs>
+
+  <help>
+
+**What it does**
+
+This tool generate URL list. That URL points molecular graphics of proteins view page by PDB ID.
+
+-----
+
+**How to use**
+
+Input: PDB ID list in History.
+
+Output: Molecular graphics of proteins view page URL list.
+
+  </help>
+</tool>

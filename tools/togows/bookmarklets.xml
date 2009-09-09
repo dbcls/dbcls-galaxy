@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<tool id="togows_bookmarklets" name="Bookmarks" tool_type="data_source" URL_method="post">
+  <description>Bookmarklets to access the original entry</description>
+  
+  <command interpreter="sh">echo please don't execute.</command>
+  
+  <inputs action="/static/bookmarklets.html" check_values="false" method="get">
+    <display>go to UCSC Table Browser $GALAXY_URL</display>
+  </inputs>
+
+  <outputs>
+    <data format="tabular" name="output" />
+  </outputs>
+  
+  <!-- help>
+  Bookmark them to show the original entries.
+  </help-->
+
+  <display>
+    <b>hoge</b><i>fuga</i><br/>
+    piyo
+  </display>
+
+</tool>
